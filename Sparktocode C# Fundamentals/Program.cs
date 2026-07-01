@@ -323,6 +323,38 @@ namespace Csharpfundamentals
                 double totalShipping = baseCost + extra;
                 Console.WriteLine("Base Cost: " + baseCost + " OMR. Extra Charge: " + extra + " OMR. Total Shipping Cost: " + totalShipping + " OMR.");
             }
+            Console.Write("\n");
+
+            // Hard: Task 13
+
+            Console.Write("Enter side A: ");
+            double side1 = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Enter side B: ");
+            double side2 = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Enter side C: ");
+            double side3 = Convert.ToDouble(Console.ReadLine());
+
+            if (side1 + side2 > side3 && side1 + side3 > side2 && side2 + side3 > side1)
+            {
+                if (side1 == side2 && side2 == side3)
+                {
+                    Console.WriteLine("This is a valid equilateral triangle");
+                }
+                else if (side1 == side2 || side1 == side3 || side2 == side3)
+                {
+                    Console.WriteLine("This is a valid isosceles triangle");
+                }
+                else
+                {
+                    Console.WriteLine("This is a valid scalene triangle");
+                }
+            }
+            else
+            {
+                Console.WriteLine("These sides do not form a valid triangle.");
+            }
+            Console.Write("\n");
+
 
         }
     }
