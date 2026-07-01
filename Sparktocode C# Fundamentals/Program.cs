@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace Csharpfundamentals
 {
@@ -43,7 +44,25 @@ namespace Csharpfundamentals
             }
             Console.Write("\n");
 
+            // Easy: Task 4
 
+            Console.Write("Enter your age: ");
+            int userage = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Do you hold a valid national ID (y/n)?: ");
+            string id = Console.ReadLine();
+            bool hasId = (id == "y");
+
+            if(userage >= 18 && hasId)
+            {
+                Console.WriteLine("You are eligible to vote");
+            }
+            else
+            {
+                Console.WriteLine("You are not eligible to vote");
+            }
+            Console.Write("\n");
+
+            
         }
 }
 }
