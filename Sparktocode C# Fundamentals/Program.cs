@@ -112,6 +112,31 @@ namespace Csharpfundamentals
             Console.WriteLine("The temperature in Fahrenheit is: " + F + ", and the weather classification is: " + weather);
             Console.Write("\n");
 
+            // Medium: Task 7
+
+            Console.Write("Enter your age: ");
+            int ticketage = Convert.ToInt32(Console.ReadLine());
+            string price;
+            string category;
+            if (ticketage >= 0 && ticketage <= 12)
+            {
+                category = "Child";
+                price = "2.000 OMR";
+            }
+            else if (ticketage >= 13 && ticketage <= 59)
+            {
+                category = "Adult";
+                price = "5.000 OMR";
+            }
+            else
+            {
+                category = "Senior";
+                price = "3.000 OMR";
+            }
+
+            Console.WriteLine("Your ticket category is: " + category + ", and the price is " + price);
+            Console.Write("\n");
+
 
         }
 }
