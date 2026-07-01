@@ -404,6 +404,54 @@ namespace Csharpfundamentals
                 Console.WriteLine("The tax is: " + tax + " OMR.");
                 Console.WriteLine("The final total: " + total + " OMR.");
             }
+            Console.Write("\n");
+
+            // Advanced: Task 15
+
+            Console.Write("Enter program type (S for Science, A for Arts): ");
+            char program = Convert.ToChar(Console.ReadLine());
+            program = char.ToUpper(program);
+            Console.Write("Enter GPA (out of 4.0): ");
+            double gpa = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Enter entrance exam score (out of 100): ");
+            double score = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Do you have an extracurricular achievement (yes/no)?: ");
+            string extracur = Console.ReadLine();
+            bool hasExtra = (extracur == "yes");
+            switch (program)
+            {
+                case 'S':
+                    if (gpa >= 3.0 && score >= 75)
+                    {
+                        Console.WriteLine("Admitted, program type is Science");
+                    }
+                    else if (hasExtra)
+                    {
+                        Console.WriteLine("Conditionally Admitted, program type is Science");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Not Admitted, program type is Science");
+                    }
+                    break;
+                case 'A':
+                    if (gpa >= 2.5 && score >= 60)
+                    {
+                        Console.WriteLine("Admitted, program type is Arts");
+                    }
+                    else if (hasExtra)
+                    {
+                        Console.WriteLine("Conditionally Admitted, program type is Arts");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Not Admitted, program type is Arts");
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Invalid program type");
+                    break;
+            }
         }
     }
 }
