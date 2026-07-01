@@ -89,6 +89,30 @@ namespace Csharpfundamentals
                     Console.WriteLine("Invalid grade");
                     break;
             }
+            Console.Write("\n");
+
+            // Medium: Task 6
+
+            Console.Write("Enter the temperature in Celsius: ");
+            double C = Convert.ToDouble(Console.ReadLine());
+            double F = (C * 9 / 5) + 32;
+            string weather;
+            if (C < 10)
+            {
+                weather = "Cold";
+            }
+            else if (C <= 30)
+            {
+                weather = "Mild";
+            }
+            else
+            {
+                weather = "Hot";
+            }
+            Console.WriteLine("The temperature in Fahrenheit is: " + F + ", and the weather classification is: " + weather);
+            Console.Write("\n");
+
+
         }
 }
 }
