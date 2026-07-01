@@ -48,9 +48,9 @@ namespace Csharpfundamentals
 
             Console.Write("Enter your age: ");
             int userage = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Do you hold a valid national ID (y/n)?: ");
+            Console.Write("Do you hold a valid national ID (yes/no)?: ");
             string id = Console.ReadLine();
-            bool hasId = (id == "y");
+            bool hasId = (id == "yes");
 
             if(userage >= 18 && hasId)
             {
@@ -62,7 +62,33 @@ namespace Csharpfundamentals
             }
             Console.Write("\n");
 
-            
+            // Easy: Task 5
+
+            Console.Write("Enter a grade (A, B, C, D, or F): ");
+            char grade = Convert.ToChar(Console.ReadLine());
+            grade = char.ToUpper(grade);
+
+            switch (grade)
+            {
+                case 'A':
+                    Console.WriteLine("Excellent");
+                    break;
+                case 'B':
+                    Console.WriteLine("Very good");
+                    break;
+                case 'C':
+                    Console.WriteLine("Good");
+                    break;
+                case 'D':
+                    Console.WriteLine("Pass");
+                    break;
+                case 'F':
+                    Console.WriteLine("Fail");
+                    break;
+                default:
+                    Console.WriteLine("Invalid grade");
+                    break;
+            }
         }
 }
 }
