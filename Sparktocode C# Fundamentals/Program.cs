@@ -233,6 +233,39 @@ namespace Csharpfundamentals
             }
             Console.Write("\n");
 
+            // Hard: Task 11
+
+            Console.Write("Enter your age: ");
+            int personage = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter your monthly income: ");
+            double income = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Do you have an existing loan (yes/no)?: ");
+            string loan = Console.ReadLine();
+            bool hasLoan = (loan == "no");
+
+            if (personage >= 21 && personage <= 60 && income >= 400 && hasLoan)
+            {
+                Console.WriteLine("You are eligible for the loan");
+            }
+            else
+            {
+                Console.WriteLine("You are not eligible for the loan");
+
+                if (personage < 21 || personage > 60)
+                {
+                    Console.WriteLine("Reason: Age out of range");
+                }
+                else if (income < 400)
+                {
+                    Console.WriteLine("Reason: Income too low");
+                }
+                else if (hasLoan)
+                {
+                    Console.WriteLine("Reason: Has an existing loan");
+                }
+            }
+            Console.Write("\n");
+
 
         }
 }
