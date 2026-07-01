@@ -137,6 +137,23 @@ namespace Csharpfundamentals
             Console.WriteLine("Your ticket category is: " + category + ", and the price is " + price);
             Console.Write("\n");
 
+            // Medium: Task 8
+
+            Console.Write("Enter the total bill amount: ");
+            double bill = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Are you a loyalty member (yes/no)?: ");
+            string loyalty = Console.ReadLine();
+            bool hasLoyalty = (loyalty == "yes");
+            double discount = 0;
+            if (bill > 20 && hasLoyalty)
+            {
+                discount = bill * 0.15;
+            }
+
+            double final = bill - discount;
+            Console.WriteLine("The original bill is: " + bill + ", the discount amount is: " + discount + ", and the final amount to pay is: " + final);
+            Console.Write("\n");
+
 
         }
 }
