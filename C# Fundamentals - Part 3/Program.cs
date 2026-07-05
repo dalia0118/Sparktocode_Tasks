@@ -176,6 +176,44 @@
             Console.Write("\n");
 
 
+            // Advanced: Task 11 - One-Time Password (OTP) Generator
+
+            Random randomGenerator = new Random();
+            int otp = randomGenerator.Next(1000, 10000);
+            Console.WriteLine("Your OTP code is: " + otp);
+            int attempts = 0;
+            bool verified = false;
+            while (attempts < 3 && !verified)
+            {
+                Console.WriteLine("Enter the code you received: ");
+                try
+                {
+                    int enteredCode = Convert.ToInt32(Console.ReadLine());
+                    if (enteredCode == otp)
+                    {
+                        verified = true;
+                        Console.WriteLine("Verified");
+                    }
+                    else
+                    {
+                        attempts++;
+                        Console.WriteLine("Incorrect code. Attempts left: " + (3 - attempts));
+                    }
+                }
+                catch (Exception)
+                {
+                    attempts++;
+                    Console.WriteLine("Invalid input. Attempts left: " + (3 - attempts));
+                }
+            }
+
+            if (!verified)
+            {
+                Console.WriteLine("Verification Failed");
+            }
+            Console.Write("\n");
+
+
 
         }
     }
