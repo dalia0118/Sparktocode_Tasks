@@ -214,7 +214,31 @@
             Console.Write("\n");
 
 
+            // Advanced: Task 12 - Birthday Insights
 
+            try
+            {
+                Console.WriteLine("Enter your date of birth (e.g. 2000-05-14): ");
+                string dobText = Console.ReadLine();
+                DateTime dob = DateTime.Parse(dobText);
+
+                int userage = DateTime.Today.Year - dob.Year;
+                if (DateTime.Today.Month < dob.Month ||
+                   (DateTime.Today.Month == dob.Month && DateTime.Today.Day < dob.Day))
+                {
+                    userage--;
+                }
+
+                DayOfWeek birthWeekday = dob.DayOfWeek;
+
+                Console.WriteLine("Age: " + userage + " years");
+                Console.WriteLine("Born on a: " + birthWeekday);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error: Please enter a valid date in the format YYYY-MM-DD.");
+            }
+            Console.Write("\n");
         }
     }
 }
