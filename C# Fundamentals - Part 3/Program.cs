@@ -155,6 +155,27 @@
             Console.Write("\n");
 
 
+            // Hard: Task 10 - Word Position Finder
+
+            Console.WriteLine("Enter a full sentence: ");
+            string sentence = Console.ReadLine();
+            Console.WriteLine("Enter a word to search for: ");
+            string word = Console.ReadLine();
+
+            int firstPosition = sentence.IndexOf(word);
+            int lastPosition = sentence.LastIndexOf(word);
+            if (firstPosition == -1)
+            {
+                Console.WriteLine("The word was not found in the sentence.");
+            }
+            else
+            {
+                Console.WriteLine("First occurrence at position: " + firstPosition);
+                Console.WriteLine("Last occurrence at position: " + lastPosition);
+            }
+            Console.Write("\n");
+
+
 
         }
     }
