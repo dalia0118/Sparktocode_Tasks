@@ -94,6 +94,26 @@
             Console.Write("\n");
 
 
+            // Medium: Task 7 - Clean Name Comparator
+
+            Console.WriteLine("Enter the name (first time): ");
+            string name1 = Console.ReadLine();
+            Console.WriteLine("Enter the name (second time): ");
+            string name2 = Console.ReadLine();
+
+            string cleanName1 = name1.Trim().ToUpper();
+            string cleanName2 = name2.Trim().ToUpper();
+            if (cleanName1 == cleanName2)
+            {
+                Console.WriteLine("Match");
+            }
+            else
+            {
+                Console.WriteLine("No Match");
+            }
+            Console.Write("\n");
+
+
 
         }
     }
