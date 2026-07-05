@@ -50,6 +50,22 @@
             Console.Write("\n");
 
 
+            // Medium: Task 5 - Grade Rounding System
+
+            Console.WriteLine("Enter your raw exam score: ");
+            double rawScore = Convert.ToDouble(Console.ReadLine());
+            double roundedScore = Math.Round(rawScore, 0);
+            Console.WriteLine("Rounded score: " + roundedScore);
+            if (roundedScore >= 60)
+            {
+                Console.WriteLine("Result: Pass");
+            }
+            else
+            {
+                Console.WriteLine("Result: Fail");
+            }
+            Console.Write("\n");
+
 
         }
     }
