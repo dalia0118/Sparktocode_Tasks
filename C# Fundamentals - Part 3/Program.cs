@@ -114,6 +114,34 @@
             Console.Write("\n");
 
 
+            // Medium: Task 8 - Membership Expiry Checker
+
+            try
+            {
+                Console.WriteLine("Enter membership start date (e.g. 2026-01-10): ");
+                string startingDateText = Console.ReadLine();
+                DateTime startingDate = DateTime.Parse(startingDateText);
+
+                Console.WriteLine("Enter number of valid membership days: ");
+                int validDays = Convert.ToInt32(Console.ReadLine());
+                DateTime expiryDate = startingDate.AddDays(validDays);
+                if (expiryDate >= DateTime.Today)
+                {
+                    Console.WriteLine("Membership status: Active");
+                }
+                else
+                {
+                    Console.WriteLine("Membership status: Expired");
+                }
+                Console.WriteLine("Expiry date: " + expiryDate.ToString("yyyy-MM-dd"));
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error: Please enter a valid date and a valid whole number.");
+            }
+            Console.Write("\n");
+
+
 
         }
     }
