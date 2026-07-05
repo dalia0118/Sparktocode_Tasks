@@ -45,6 +45,26 @@
             Console.Write("\n");
 
 
+            // Easy: Task 4 - Password Retry
+
+            string correctpass = "Spark2026";
+            string input = "";
+
+            while (input != correctpass)
+            {
+                Console.WriteLine("Enter password: ");
+                input = Console.ReadLine();
+
+                if (input != correctpass)
+                {
+                    Console.WriteLine("Incorrect password, please try again");
+                }
+            }
+
+            Console.WriteLine("Access Granted");
+            Console.Write("\n");
+
+
 
         }
     }
