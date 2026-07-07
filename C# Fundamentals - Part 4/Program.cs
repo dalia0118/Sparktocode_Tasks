@@ -56,6 +56,15 @@
             else return "F";
         }
 
+        // Medium: Task 8 - Countdown Function
+        static void Countdown(int start)
+        {
+            for (int i = start; i >= 1; i--)
+            {
+                Console.WriteLine(i);
+            }
+        }
+
         // ----------------------------------------------------------- MAIN --------------------------------------------------------------
         static void Main(string[] args)
         {
@@ -121,6 +130,14 @@
                 int score = Convert.ToInt32(Console.ReadLine());
                 string grade = GetGradeLetter(score);
                 Console.WriteLine("Grade: " + grade);
+                Console.Write("\n");
+
+
+                // Medium: Task 8 - Countdown Function
+                Console.Write("Enter a starting number: ");
+                int start = Convert.ToInt32(Console.ReadLine());
+                Countdown(start);
+                Console.Write("\n");
 
 
 
