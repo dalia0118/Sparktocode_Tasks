@@ -29,6 +29,13 @@
             Console.WriteLine("3) Exit");
         }
 
+        // Medium: Task 5 - Even or Odd Function
+        static bool IsEven(int number0)
+        {
+            return number0 % 2 == 0;
+        }
+
+
         // ----------------------------------------------------------- MAIN --------------------------------------------------------------
         static void Main(string[] args)
         {
@@ -42,9 +49,9 @@
 
                 // Easy: Task 2 - Square Number Function
                 Console.Write("Enter a number: ");
-                int input = Convert.ToInt32(Console.ReadLine());
-                int result = Square(input);
-                Console.WriteLine(input + " squared is: " + result);
+                int sinput = Convert.ToInt32(Console.ReadLine());
+                int result = Square(sinput);
+                Console.WriteLine(sinput + " squared is: " + result);
                 Console.Write("\n");
 
 
@@ -58,6 +65,22 @@
 
                 // Easy: Task 4 - Fixed Menu Display Function 
                 DisplayMenu();
+                Console.Write("\n");
+
+
+                // Medium: Task 5 - Even or Odd Function
+                Console.Write("Enter a number: ");
+                int einput = Convert.ToInt32(Console.ReadLine());
+                bool even = IsEven(einput);
+                if (even)
+                {
+                    Console.WriteLine("Even");
+                }
+                else
+                {
+                    Console.WriteLine("Odd");
+                }
+                Console.Write("\n");
 
 
 
