@@ -46,6 +46,16 @@
             return 2 * (length + width);
         }
 
+        // Medium: Task 7 - Grade Letter Function
+        static string GetGradeLetter(int score)
+        {
+            if (score >= 90) return "A";
+            else if (score >= 80) return "B";
+            else if (score >= 70) return "C";
+            else if (score >= 60) return "D";
+            else return "F";
+        }
+
         // ----------------------------------------------------------- MAIN --------------------------------------------------------------
         static void Main(string[] args)
         {
@@ -104,6 +114,14 @@
                 Console.WriteLine("Area: " + area);
                 Console.WriteLine("Perimeter: " + perimeter);
                 Console.Write("\n");
+
+
+                // Medium: Task 7 - Grade Letter Function
+                Console.Write("Enter your score (0-100): ");
+                int score = Convert.ToInt32(Console.ReadLine());
+                string grade = GetGradeLetter(score);
+                Console.WriteLine("Grade: " + grade);
+
 
 
             }
