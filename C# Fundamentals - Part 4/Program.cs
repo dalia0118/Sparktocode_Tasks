@@ -14,6 +14,12 @@
             return number * number;
         }
 
+        // Easy: Task 3 - Celsius to Fahrenheit Function
+        static double CelsiusToFahrenheit(double celsius)
+        {
+            return (celsius * 9 / 5) + 32;
+        }
+
         static void Main(string[] args)
         {
             {
@@ -29,6 +35,14 @@
                 int input = Convert.ToInt32(Console.ReadLine());
                 int result = Square(input);
                 Console.WriteLine(input + " squared is: " + result);
+                Console.Write("\n");
+
+
+                // Easy: Task 3 - Celsius to Fahrenheit Function
+                Console.Write("Enter a temperature in Celsius: ");
+                double celsiusInput = Convert.ToDouble(Console.ReadLine());
+                double fahrenheit = CelsiusToFahrenheit(celsiusInput);
+                Console.WriteLine(celsiusInput + " C is equal to " + fahrenheit + " F");
                 Console.Write("\n");
 
 
