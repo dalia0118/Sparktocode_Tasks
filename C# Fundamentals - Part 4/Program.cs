@@ -20,6 +20,16 @@
             return (celsius * 9 / 5) + 32;
         }
 
+        // Easy: Task 4 - Fixed Menu Display Function
+        static void DisplayMenu()
+        {
+            Console.WriteLine("TASK 4 MENU");
+            Console.WriteLine("1) Start");
+            Console.WriteLine("2) Help");
+            Console.WriteLine("3) Exit");
+        }
+
+        // ----------------------------------------------------------- MAIN --------------------------------------------------------------
         static void Main(string[] args)
         {
             {
@@ -44,6 +54,10 @@
                 double fahrenheit = CelsiusToFahrenheit(celsiusInput);
                 Console.WriteLine(celsiusInput + " C is equal to " + fahrenheit + " F");
                 Console.Write("\n");
+
+
+                // Easy: Task 4 - Fixed Menu Display Function 
+                DisplayMenu();
 
 
 
