@@ -8,6 +8,12 @@
             Console.WriteLine("Welcome " + uname + "!! Have a good day.");
         }
 
+        // Easy: Task 2 - Square Number Function
+        static int Square(int number)
+        {
+            return number * number;
+        }
+
         static void Main(string[] args)
         {
             {
@@ -15,6 +21,14 @@
                 Console.Write("Enter your name: ");
                 string userName = Console.ReadLine();
                 PrintWelcome(userName);
+                Console.Write("\n");
+
+
+                // Easy: Task 2 - Square Number Function
+                Console.Write("Enter a number: ");
+                int input = Convert.ToInt32(Console.ReadLine());
+                int result = Square(input);
+                Console.WriteLine(input + " squared is: " + result);
                 Console.Write("\n");
 
 
