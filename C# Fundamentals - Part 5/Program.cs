@@ -94,6 +94,34 @@
             Console.Write("\n");
 
 
+            // Medium: Task 6 - Filtered Shopping List
+            List<string> shoppingList6 = new List<string>();
+            Console.WriteLine("Enter shopping items one at a time. Type 'done' when finished.");
+            string item6 = Console.ReadLine();
+            while (item6.ToLower() != "done")
+            {
+                shoppingList6.Add(item6);
+                item6 = Console.ReadLine();
+            }
+
+            Console.WriteLine("\nShopping list before removal:");
+            foreach (string product6 in shoppingList6)
+            {
+                Console.WriteLine(product6);
+            }
+
+            Console.Write("\nEnter the item you want to remove: ");
+            string itemToRemove6 = Console.ReadLine();
+            shoppingList6.Remove(itemToRemove6);
+
+            Console.WriteLine("\nShopping list after removal:");
+            foreach (string product6 in shoppingList6)
+            {
+                Console.WriteLine(product6);
+            }
+            Console.Write("\n");
+
+
 
         }
     }
