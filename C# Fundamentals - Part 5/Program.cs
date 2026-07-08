@@ -19,6 +19,23 @@
             return grades.Find(x => x < 60);
         }
 
+        // Advanced: Task 10 - Print Queue Manager
+        static Queue<string> RemoveJob(Queue<string> jobs, string jobToRemove)
+        {
+            Queue<string> updatedJobs = new Queue<string>();
+
+            while (jobs.Count > 0)
+            {
+                string currentJob = jobs.Dequeue();
+                if (currentJob != jobToRemove)
+                {
+                    updatedJobs.Enqueue(currentJob);
+                }
+            }
+
+            return updatedJobs;
+        }
+
         // ----------------------------------------------------------- MAIN --------------------------------------------------------------
 
         static void Main(string[] args)
@@ -208,7 +225,33 @@
             Console.Write("\n");
 
 
+            // Advanced: Task 10 - Print Queue Manager
+            Queue<string> printJobs10 = new Queue<string>();
 
+            Console.WriteLine("Enter print job names. Type 'done' when finished.");
+            string job10 = Console.ReadLine();
+            while (job10.ToLower() != "done")
+            {
+                printJobs10.Enqueue(job10);
+                job10 = Console.ReadLine();
+            }
+
+            Console.WriteLine("\nPrint queue before cancellation:");
+            foreach (string printJob10 in printJobs10)
+            {
+                Console.WriteLine(printJob10);
+            }
+
+            Console.Write("\nEnter the name of the job to cancel: ");
+            string jobToCancel10 = Console.ReadLine();
+            printJobs10 = RemoveJob(printJobs10, jobToCancel10);
+
+            Console.WriteLine("\nPrint queue after cancellation:");
+            foreach (string printJob10 in printJobs10)
+            {
+                Console.WriteLine(printJob10);
+            }
+            Console.Write("\n");
         }
     }
 }
