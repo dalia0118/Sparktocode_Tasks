@@ -21,6 +21,26 @@
             Console.Write("\n");
 
 
+            // Easy: Task 2 - Dynamic To-Do List
+            List<string> toDoList2 = new List<string>();
+
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write("Enter task " + (i + 1) + ": ");
+                string task2 = Console.ReadLine();
+                toDoList2.Add(task2);
+            }
+
+            Console.WriteLine("\nYour To-Do List:");
+            int count2 = 1;
+            foreach (string task2 in toDoList2)
+            {
+                Console.WriteLine(count2 + ". " + task2);
+                count2++;
+            }
+            Console.Write("\n");
+
+
 
         }
     }
