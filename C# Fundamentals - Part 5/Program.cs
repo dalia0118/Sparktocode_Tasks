@@ -142,6 +142,28 @@
             Console.Write("\n");
 
 
+            // Medium: Task 8 - Undo Last Action
+            Stack<string> actions8 = new Stack<string>();
+
+            Console.WriteLine("Type an action to record it. Type 'stop' when finished.");
+            string action8 = Console.ReadLine();
+            while (action8.ToLower() != "stop")
+            {
+                actions8.Push(action8);
+                action8 = Console.ReadLine();
+            }
+
+            Console.WriteLine("\nUndoing last action: " + actions8.Pop());
+            Console.WriteLine("Undoing previous action: " + actions8.Pop());
+
+            Console.WriteLine("\nRemaining actions on the stack:");
+            foreach (string remainingAction8 in actions8)
+            {
+                Console.WriteLine(remainingAction8);
+            }
+            Console.Write("\n");
+
+
 
         }
     }
