@@ -102,10 +102,54 @@ namespace BankingSystemApp
         static void DepositMoney()
         {
             // TODO: implement this service (see Section 3 requirements)
+            Console.Write("Enter account number: ");
+            string accountNumberEntered = Console.ReadLine();
+            int index = accountNumbers.IndexOf(accountNumberEntered);
+            if (index == -1)
+            {
+                Console.WriteLine("Account not found.");
+                return;
+            }
+
+            Console.Write("Enter deposit amount: ");
+            double depositAmount = Convert.ToDouble(Console.ReadLine());
+            if (depositAmount <= 0)
+            {
+                Console.WriteLine("Deposit amount must be positive.");
+                return;
+            }
+
+            balances[index] = balances[index] + depositAmount;
+            Console.WriteLine("Deposit successful. " + customerNames[index] + "'s new balance is " + balances[index]);
         }
         static void WithdrawMoney()
         {
             // TODO: implement this service (see Section 3 requirements)
+            Console.Write("Enter account number: ");
+            string accountNumberEntered = Console.ReadLine();
+            int index = accountNumbers.IndexOf(accountNumberEntered);
+            if (index == -1)
+            {
+                Console.WriteLine("Account not found.");
+                return;
+            }
+
+            Console.Write("Enter withdrawal amount: ");
+            double withdrawAmount = Convert.ToDouble(Console.ReadLine());
+            if (withdrawAmount <= 0)
+            {
+                Console.WriteLine("Withdrawal amount must be positive.");
+                return;
+            }
+
+            if (withdrawAmount > balances[index])
+            {
+                Console.WriteLine("Insufficient funds. Current balance is " + balances[index]);
+                return;
+            }
+
+            balances[index] = balances[index] - withdrawAmount;
+            Console.WriteLine("Withdrawal successful. " + customerNames[index] + "'s new balance is " + balances[index]);
         }
         static void ShowBalance()
         {
