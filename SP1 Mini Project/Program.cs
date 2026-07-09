@@ -154,10 +154,54 @@ namespace BankingSystemApp
         static void ShowBalance()
         {
             // TODO: implement this service (see Section 3 requirements)
+            Console.Write("Enter account number: ");
+            string accountNumberEntered = Console.ReadLine();
+            int index = accountNumbers.IndexOf(accountNumberEntered);
+            if (index == -1)
+            {
+                Console.WriteLine("Account not found.");
+                return;
+            }
+
+            Console.WriteLine("Customer: " + customerNames[index]);
+            Console.WriteLine("Account Number: " + accountNumbers[index]);
+            Console.WriteLine("Balance: " + balances[index]);
         }
         static void TransferAmount()
         {
             // TODO: implement this service (see Section 3 requirements)
+            Console.Write("Enter sender's account number: ");
+            string senderAccountNumber = Console.ReadLine();
+            Console.Write("Enter receiver's account number: ");
+            string receiverAccountNumber = Console.ReadLine();
+
+            int senderIndex = accountNumbers.IndexOf(senderAccountNumber);
+            int receiverIndex = accountNumbers.IndexOf(receiverAccountNumber);
+            if (senderIndex == -1 || receiverIndex == -1)
+            {
+                Console.WriteLine("One or both accounts not found.");
+                return;
+            }
+
+            Console.Write("Enter amount to transfer: ");
+            double transferAmount = Convert.ToDouble(Console.ReadLine());
+            if (transferAmount <= 0)
+            {
+                Console.WriteLine("Transfer amount must be positive.");
+                return;
+            }
+
+            if (transferAmount > balances[senderIndex])
+            {
+                Console.WriteLine("Insufficient funds. Current balance is " + balances[senderIndex]);
+                return;
+            }
+
+            balances[senderIndex] = balances[senderIndex] - transferAmount;
+            balances[receiverIndex] = balances[receiverIndex] + transferAmount;
+            Console.WriteLine("Transfer successful.");
+            Console.WriteLine(customerNames[senderIndex] + "'s new balance: " + balances[senderIndex]);
+            Console.WriteLine(customerNames[receiverIndex] + "'s new balance: " + balances[receiverIndex]);
         }
         // TODO: write two more void, no-parameter functions here for
         // your own custom services (option 6 and option 7)
