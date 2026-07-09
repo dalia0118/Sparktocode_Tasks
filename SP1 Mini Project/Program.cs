@@ -80,7 +80,17 @@ namespace BankingSystemApp
             string Names = Console.ReadLine();
             Console.Write("Please enter new account number: ");
             string newAccountNum = Console.ReadLine();
-            if (accountNumbers.Contains(newAccountNum))
+            bool found = false;
+
+            foreach (string existingNumber in accountNumbers)
+            {
+                if (existingNumber == newAccountNum)
+                {
+                    found = true;
+                }
+            }
+
+            if (found)
             {
                 Console.WriteLine("This account number already exists.");
                 return;
