@@ -218,10 +218,56 @@ namespace BankingSystemApp
         static void FindRichest()
         {
             // Chosen service for option 6
+            if (customerNames.Count == 0)
+            {
+                Console.WriteLine("No accounts exist yet.");
+                return;
+            }
+
+            int richestIndex = 0;
+
+            for (int i = 1; i < balances.Count; i++)
+            {
+                if (balances[i] > balances[richestIndex])
+                {
+                    richestIndex = i;
+                }
+            }
+
+            Console.WriteLine("Richest customer: " + customerNames[richestIndex]);
+            Console.WriteLine("Account Number: " + accountNumbers[richestIndex]);
+            Console.WriteLine("Balance: " + balances[richestIndex]);
         }
         static void CloseAccount()
         {
             // Chosen service for option 7
+
+            Console.Write("Enter account number to close: ");
+            string accountNumberEntered = Console.ReadLine();
+
+            int index = accountNumbers.IndexOf(accountNumberEntered);
+
+            if (index == -1)
+            {
+                Console.WriteLine("Account not found.");
+                return;
+            }
+
+            Console.WriteLine("Account found: " + customerNames[index] + ", Balance: " + balances[index]);
+            Console.Write("Are you sure you want to close this account? (y/n): ");
+            string confirmation = Console.ReadLine();
+
+            if (confirmation.ToLower() != "y")
+            {
+                Console.WriteLine("Account closure cancelled.");
+                return;
+            }
+
+            customerNames.RemoveAt(index);
+            accountNumbers.RemoveAt(index);
+            balances.RemoveAt(index);
+
+            Console.WriteLine("Account closed successfully.");
         }
     }
 }
