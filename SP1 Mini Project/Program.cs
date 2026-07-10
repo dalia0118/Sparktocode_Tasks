@@ -225,7 +225,6 @@ namespace BankingSystemApp
             }
 
             int richestIndex = 0;
-
             for (int i = 1; i < balances.Count; i++)
             {
                 if (balances[i] > balances[richestIndex])
@@ -244,9 +243,7 @@ namespace BankingSystemApp
 
             Console.Write("Enter account number to close: ");
             string accountNumberEntered = Console.ReadLine();
-
             int index = accountNumbers.IndexOf(accountNumberEntered);
-
             if (index == -1)
             {
                 Console.WriteLine("Account not found.");
@@ -254,10 +251,9 @@ namespace BankingSystemApp
             }
 
             Console.WriteLine("Account found: " + customerNames[index] + ", Balance: " + balances[index]);
-            Console.Write("Are you sure you want to close this account? (y/n): ");
+            Console.Write("Are you sure you want to close this account? (yes/no): ");
             string confirmation = Console.ReadLine();
-
-            if (confirmation.ToLower() != "y")
+            if (confirmation.ToLower() != "yes")
             {
                 Console.WriteLine("Account closure cancelled.");
                 return;
@@ -266,7 +262,6 @@ namespace BankingSystemApp
             customerNames.RemoveAt(index);
             accountNumbers.RemoveAt(index);
             balances.RemoveAt(index);
-
             Console.WriteLine("Account closed successfully.");
         }
     }
