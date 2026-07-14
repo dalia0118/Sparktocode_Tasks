@@ -128,8 +128,22 @@ namespace SparktoCodeOOP
                             break;
                         }
                     case 7:
-                        Console.WriteLine("Case 7");
-                        break;
+                        {
+                            // Case 7 - Compare Two Account Balances
+                            if (account1.Balance > account2.Balance)
+                            {
+                                Console.WriteLine(account1.HolderName + " has more money than " + account2.HolderName + ".");
+                            }
+                            else if (account2.Balance > account1.Balance)
+                            {
+                                Console.WriteLine(account2.HolderName + " has more money than " + account1.HolderName + ".");
+                            }
+                            else
+                            {
+                                Console.WriteLine(account1.HolderName + " and " + account2.HolderName + " have equal balances.");
+                            }
+                            break;
+                        }
                     case 8:
                         Console.WriteLine("Case 8");
                         break;
