@@ -117,8 +117,16 @@ namespace SparktoCodeOOP
                             break;
                         }
                     case 6:
-                        Console.WriteLine("Case 6");
-                        break;
+                        {
+                            // Case 6 - Register a Student
+                            Student chosen = ChooseStudent();
+                            if (chosen == null) { Console.WriteLine("Invalid selection."); break; }
+                            Console.Write("Enter email: ");
+                            string email = Console.ReadLine();
+                            chosen.Register(email);
+                            Console.WriteLine(chosen.Name + " has been registered successfully.");
+                            break;
+                        }
                     case 7:
                         Console.WriteLine("Case 7");
                         break;
