@@ -108,8 +108,14 @@ namespace SparktoCodeOOP
                             break;
                         }
                     case 5:
-                        Console.WriteLine("Case 5");
-                        break;
+                        {
+                            // Case 5 - View Product Details
+                            Product chosen = ChooseProduct();
+                            if (chosen == null) { Console.WriteLine("Invalid selection."); break; }
+                            double totalValue = chosen.GetInventoryValue();
+                            Console.WriteLine("Total Inventory Value: " + totalValue);
+                            break;
+                        }
                     case 6:
                         Console.WriteLine("Case 6");
                         break;
@@ -184,6 +190,17 @@ namespace SparktoCodeOOP
             string input = Console.ReadLine();
             if (input == "1") return student1;
             if (input == "2") return student2;
+            return null;
+        }
+        // Case 5 - View Product Details
+        static Product ChooseProduct()
+        {
+            Console.WriteLine("1. " + product1.ProductName);
+            Console.WriteLine("2. " + product2.ProductName);
+            Console.Write("Choose product (1 or 2): ");
+            string input = Console.ReadLine();
+            if (input == "1") return product1;
+            if (input == "2") return product2;
             return null;
         }
 
