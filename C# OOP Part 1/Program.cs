@@ -145,8 +145,32 @@ namespace SparktoCodeOOP
                             break;
                         }
                     case 8:
-                        Console.WriteLine("Case 8");
-                        break;
+                        {
+                            // Case 8 - Restock Product & Stock Level Check
+                            Product chosen = ChooseProduct();
+                            if (chosen == null) { Console.WriteLine("Invalid selection."); break; }
+                            Console.Write("Enter quantity to restock: ");
+                            int quantity;
+                            if (!int.TryParse(Console.ReadLine(), out quantity) || quantity <= 0)
+                            {
+                                Console.WriteLine("Quantity must be a positive whole number.");
+                                break;
+                            }
+                            chosen.Restock(quantity);
+                            if (chosen.StockQuantity < 10)
+                            {
+                                Console.WriteLine("Stock level is now: Low");
+                            }
+                            else if (chosen.StockQuantity < 50)
+                            {
+                                Console.WriteLine("Stock level is now: Moderate");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Stock level is now: Well Stocked");
+                            }
+                            break;
+                        }
                     case 9:
                         Console.WriteLine("Case 9");
                         break;
