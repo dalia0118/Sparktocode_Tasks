@@ -203,8 +203,26 @@ namespace SparktoCodeOOP
                             break;
                         }
                     case 10:
-                        Console.WriteLine("Case 10");
-                        break;
+                        {
+                            // Case 10 - Update Student Grade (Validated)
+                            Student chosen = ChooseStudent();
+                            if (chosen == null) { Console.WriteLine("Invalid selection."); break; }
+                            Console.Write("Enter new grade: ");
+                            int grade;
+                            if (!int.TryParse(Console.ReadLine(), out grade))
+                            {
+                                Console.WriteLine("Invalid input. Grade must be a whole number.");
+                                break;
+                            }
+                            if (grade < 0 || grade > 100)
+                            {
+                                Console.WriteLine("Grade must be between 0 and 100.");
+                                break;
+                            }
+                            chosen.Grade = grade;
+                            Console.WriteLine(chosen.Name + "'s grade updated to " + chosen.Grade);
+                            break;
+                        }
                     case 11:
                         Console.WriteLine("Case 11");
                         break;
