@@ -172,8 +172,36 @@ namespace SparktoCodeOOP
                             break;
                         }
                     case 9:
-                        Console.WriteLine("Case 9");
-                        break;
+                        {
+                            // Case 9 - Transfer Between Accounts
+                            Console.WriteLine("Choose the SOURCE account:");
+                            BankAccount source = ChooseAccount();
+                            Console.WriteLine("Choose the DESTINATION account:");
+                            BankAccount destination = ChooseAccount();
+                            if (source == null || destination == null)
+                            {
+                                Console.WriteLine("Invalid selection.");
+                                break;
+                            }
+                            Console.Write("Enter amount to transfer: ");
+                            double amount;
+                            if (!double.TryParse(Console.ReadLine(), out amount) || amount <= 0)
+                            {
+                                Console.WriteLine("Transfer amount must be a positive number.");
+                                break;
+                            }
+                            if (amount > source.Balance)
+                            {
+                                Console.WriteLine("Transfer failed. Insufficient funds in " + source.HolderName + "'s account.");
+                                break;
+                            }
+                            source.Withdraw(amount);
+                            destination.Deposit(amount);
+                            Console.WriteLine("Transfer successful.");
+                            Console.WriteLine(source.HolderName + "'s new balance: " + source.Balance);
+                            Console.WriteLine(destination.HolderName + "'s new balance: " + destination.Balance);
+                            break;
+                        }
                     case 10:
                         Console.WriteLine("Case 10");
                         break;
