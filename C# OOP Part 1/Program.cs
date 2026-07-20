@@ -237,8 +237,26 @@ namespace SparktoCodeOOP
                             break;
                         }
                     case 12:
-                        Console.WriteLine("Case 12");
-                        break;
+                        {
+                            // Case 12 - Account Health Status
+                            BankAccount chosen = ChooseAccount();
+                            if (chosen == null) { Console.WriteLine("Invalid selection."); break; }
+                            string status;
+                            if (chosen.Balance < 50)
+                            {
+                                status = "Low Balance";
+                            }
+                            else if (chosen.Balance <= 1000)
+                            {
+                                status = "Healthy";
+                            }
+                            else
+                            {
+                                status = "Premium";
+                            }
+                            Console.WriteLine(chosen.HolderName + "'s account status: " + status);
+                            break;
+                        }
                     case 13:
                         Console.WriteLine("Case 13");
                         break;
