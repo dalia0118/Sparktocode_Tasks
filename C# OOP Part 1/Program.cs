@@ -361,8 +361,20 @@ namespace SparktoCodeOOP
                             break;
                         }
                     case 18:
-                        Console.WriteLine("Case 18");
-                        break;
+                        {
+                            // Case 18 - Overdrawn Account Check (Read-Only Property)
+                            BankAccount chosen = ChooseAccount();
+                            if (chosen == null) { Console.WriteLine("Invalid selection."); break; }
+                            if (chosen.IsOverdrawn)
+                            {
+                                Console.WriteLine(chosen.HolderName + "'s account is currently overdrawn.");
+                            }
+                            else
+                            {
+                                Console.WriteLine(chosen.HolderName + "'s account is not overdrawn.");
+                            }
+                            break;
+                        }
                     case 19:
                         Console.WriteLine("Case 19");
                         break;
@@ -423,6 +435,11 @@ namespace SparktoCodeOOP
                 AccountNumber = accountNumber;
                 HolderName = holderName;
                 Balance = balance;
+            }
+
+            public bool IsOverdrawn
+            {
+                get { return Balance < 0; }
             }
 
             public void Deposit(double amount)
