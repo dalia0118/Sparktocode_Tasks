@@ -313,8 +313,24 @@ namespace SparktoCodeOOP
                             break;
                         }
                     case 15:
-                        Console.WriteLine("Case 15");
-                        break;
+                        {
+                            // Case 15 - Full Balance Top-Up Flow
+                            BankAccount chosen = ChooseAccount();
+                            if (chosen == null) { Console.WriteLine("Invalid selection."); break; }
+                            double before = chosen.Balance;
+                            if (before < 50)
+                            {
+                                double topUp = 100 - before;
+                                chosen.Deposit(topUp);
+                                Console.WriteLine("Balance before: " + before);
+                                Console.WriteLine("Balance after: " + chosen.Balance);
+                            }
+                            else
+                            {
+                                Console.WriteLine("No top-up needed. Current balance: " + before);
+                            }
+                            break;
+                        }
                     case 16:
                         Console.WriteLine("Case 16");
                         break;
