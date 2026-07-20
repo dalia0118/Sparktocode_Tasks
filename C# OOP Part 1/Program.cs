@@ -281,8 +281,37 @@ namespace SparktoCodeOOP
                             break;
                         }
                     case 14:
-                        Console.WriteLine("Case 14");
-                        break;
+                        {
+                            // Case 14 - Scholarship Eligibility Check
+                            Console.WriteLine("Choose the student:");
+                            Student chosenStudent = ChooseStudent();
+                            Console.WriteLine("Choose the account:");
+                            BankAccount chosenAccount = ChooseAccount();
+                            if (chosenStudent == null || chosenAccount == null)
+                            {
+                                Console.WriteLine("Invalid selection.");
+                                break;
+                            }
+                            bool gradeOk = chosenStudent.Grade >= 80;
+                            bool balanceOk = chosenAccount.Balance >= 100;
+                            if (gradeOk && balanceOk)
+                            {
+                                Console.WriteLine(chosenStudent.Name + " is eligible for the scholarship.");
+                            }
+                            else
+                            {
+                                Console.WriteLine(chosenStudent.Name + " is not eligible.");
+                                if (!gradeOk)
+                                {
+                                    Console.WriteLine("Reason: Grade is below 80.");
+                                }
+                                if (!balanceOk)
+                                {
+                                    Console.WriteLine("Reason: Balance is below 100.");
+                                }
+                            }
+                            break;
+                        }
                     case 15:
                         Console.WriteLine("Case 15");
                         break;
