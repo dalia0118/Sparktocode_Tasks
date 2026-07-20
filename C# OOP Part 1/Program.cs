@@ -224,8 +224,18 @@ namespace SparktoCodeOOP
                             break;
                         }
                     case 11:
-                        Console.WriteLine("Case 11");
-                        break;
+                        {
+                            // Case 11 - Student Report Card
+                            Student chosen = ChooseStudent();
+                            if (chosen == null) { Console.WriteLine("Invalid selection."); break; }
+                            string result = (chosen.Grade >= 60) ? "Pass" : "Fail";
+                            Console.WriteLine("==== Report Card ====");
+                            Console.WriteLine("Name: " + chosen.Name);
+                            Console.WriteLine("Address: " + chosen.Address);
+                            Console.WriteLine("Grade: " + chosen.Grade);
+                            Console.WriteLine("Result: " + result);
+                            break;
+                        }
                     case 12:
                         Console.WriteLine("Case 12");
                         break;
