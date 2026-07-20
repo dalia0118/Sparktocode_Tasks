@@ -355,8 +355,11 @@ namespace SparktoCodeOOP
                             break;
                         }
                     case 17:
-                        Console.WriteLine("Case 17");
-                        break;
+                        {
+                            // Case 17 - Total Students Counter (Static Fields & Methods)
+                            Console.WriteLine("Total students created: " + Student.GetStudentCount());
+                            break;
+                        }
                     case 18:
                         Console.WriteLine("Case 18");
                         break;
@@ -465,6 +468,17 @@ namespace SparktoCodeOOP
             public string Address;
             private string email;
             int age;
+            private static int studentCount = 0;
+
+            public Student()
+            {
+                studentCount++;
+            }
+
+            public static int GetStudentCount()
+            {
+                return studentCount;
+            }
 
             public void Register(string Email)
             {
