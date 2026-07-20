@@ -5,8 +5,8 @@ namespace SparktoCodeOOP
     internal class Program
     {
         // Exactly two of each object, individually named with no collections
-        static BankAccount account1 = new BankAccount { AccountNumber = 1163, HolderName = "khalid", Balance = 120 };
-        static BankAccount account2 = new BankAccount { AccountNumber = 15203, HolderName = "Ali", Balance = 63 };
+        static BankAccount account1 = new BankAccount(1163, "khalid", 120);
+        static BankAccount account2 = new BankAccount(15203, "Ali", 63);
 
         static Student student1 = new Student { Name = "Ali", Address = "Muscat", Grade = 65 };
         static Student student2 = new Student { Name = "Ahmed", Address = "Muscat", Grade = 70 };
@@ -332,8 +332,28 @@ namespace SparktoCodeOOP
                             break;
                         }
                     case 16:
-                        Console.WriteLine("Case 16");
-                        break;
+                        {
+                            // Case 16 - Quick Account Opening (Parameterized Constructor)
+                            Console.Write("Enter new account number: ");
+                            int newAccountNumber;
+                            if (!int.TryParse(Console.ReadLine(), out newAccountNumber))
+                            {
+                                Console.WriteLine("Invalid account number.");
+                                break;
+                            }
+                            Console.Write("Enter holder name: ");
+                            string newHolderName = Console.ReadLine();
+                            Console.Write("Enter starting balance: ");
+                            double newBalance;
+                            if (!double.TryParse(Console.ReadLine(), out newBalance))
+                            {
+                                Console.WriteLine("Invalid balance.");
+                                break;
+                            }
+                            BankAccount newAccount = new BankAccount(newAccountNumber, newHolderName, newBalance);
+                            newAccount.CheckBalance();
+                            break;
+                        }
                     case 17:
                         Console.WriteLine("Case 17");
                         break;
@@ -394,6 +414,13 @@ namespace SparktoCodeOOP
             public int AccountNumber;
             public string HolderName;
             public double Balance;
+
+            public BankAccount(int accountNumber, string holderName, double balance)
+            {
+                AccountNumber = accountNumber;
+                HolderName = holderName;
+                Balance = balance;
+            }
 
             public void Deposit(double amount)
             {
