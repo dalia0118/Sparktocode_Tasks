@@ -376,8 +376,21 @@ namespace SparktoCodeOOP
                             break;
                         }
                     case 19:
-                        Console.WriteLine("Case 19");
-                        break;
+                        {
+                            // Case 19 - Set Student Security PIN (Write-Only Property)
+                            Student chosen = ChooseStudent();
+                            if (chosen == null) { Console.WriteLine("Invalid selection."); break; }
+                            Console.Write("Enter a 4-digit PIN: ");
+                            int newPin;
+                            if (!int.TryParse(Console.ReadLine(), out newPin) || newPin < 1000 || newPin > 9999)
+                            {
+                                Console.WriteLine("PIN must be a 4-digit number.");
+                                break;
+                            }
+                            chosen.Pin = newPin;
+                            Console.WriteLine("PIN has been set successfully for " + chosen.Name + ".");
+                            break;
+                        }
                     case 20:
                         exitApp = true;
                         Console.WriteLine("Goodbye!");
@@ -474,7 +487,7 @@ namespace SparktoCodeOOP
 
             private void SendEmail()
             {
-                // 
+                // representing an email notification being sent
             }
         }
 
@@ -486,10 +499,16 @@ namespace SparktoCodeOOP
             private string email;
             int age;
             private static int studentCount = 0;
+            private int pin;
 
             public Student()
             {
                 studentCount++;
+            }
+
+            public int Pin
+            {
+                set { pin = value; }
             }
 
             public static int GetStudentCount()
@@ -505,7 +524,7 @@ namespace SparktoCodeOOP
 
             private void SendEmail()
             {
-                // 
+                // representing a registration email being sent
             }
         }
 
@@ -547,7 +566,7 @@ namespace SparktoCodeOOP
 
             private void LogTransaction()
             {
-                // 
+                // representing a transaction being logged after a sale or restock
             }
         }
     }
