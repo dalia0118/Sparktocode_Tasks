@@ -54,8 +54,41 @@ namespace HotelManagementSystem
                 switch (choice)
                 {
                     case 1:
-                        Console.WriteLine("Case 1");
-                        break;
+                        {
+                            // Case 01 Add New Room
+                            Console.Write("Enter room number: ");
+                            int newRoomNumber;
+                            if (!int.TryParse(Console.ReadLine(), out newRoomNumber) || newRoomNumber <= 0)
+                            {
+                                Console.WriteLine("Room number must be a positive number.");
+                                break;
+                            }
+
+                            Console.Write("Enter room type (Single/Double/Suite): ");
+                            string newRoomType = Console.ReadLine();
+
+                            Console.Write("Enter price per night: ");
+                            double newPrice;
+                            if (!double.TryParse(Console.ReadLine(), out newPrice) || newPrice <= 0)
+                            {
+                                Console.WriteLine("Price per night must be a positive number.");
+                                break;
+                            }
+
+                            if (rooms.Any(r => r.roomNumber == newRoomNumber))
+                            {
+                                Console.WriteLine("Error: A room with this number already exists.");
+                                break;
+                            }
+
+                            Room newRoom = new Room { roomNumber = newRoomNumber, roomType = newRoomType, pricePerNight = newPrice, isAvailable = true };
+                            rooms.Add(newRoom);
+
+                            Console.WriteLine("Room added successfully!");
+                            Console.WriteLine("Room #" + newRoomNumber + " | " + newRoomType + " | OMR " + newPrice.ToString("F2") + "/night");
+                            Console.WriteLine("Total rooms: " + rooms.Count);
+                            break;
+                        }
                     case 2:
                         Console.WriteLine("Case 2");
                         break;
