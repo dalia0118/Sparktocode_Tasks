@@ -305,8 +305,45 @@ namespace HotelManagementSystem
                             break;
                         }
                     case 7:
-                        Console.WriteLine("Case 7");
-                        break;
+                        {
+                            // Case 07 Guest & Booking Statistics 
+                            int totalGuests = guests.Count();
+                            int guestsWithRoom = guests.Count(g => g.roomNumber != "Not Assigned");
+                            int totalRooms = rooms.Count();
+                            int bookedRooms = rooms.Count(r => !r.isAvailable);
+
+                            Console.WriteLine("Total registered guests: " + totalGuests);
+                            Console.WriteLine("Guests with a room assigned: " + guestsWithRoom);
+                            Console.WriteLine("Total rooms: " + totalRooms);
+                            Console.WriteLine("Booked rooms: " + bookedRooms);
+
+                            if (!guests.Any(g => g.roomNumber != "Not Assigned"))
+                            {
+                                Console.WriteLine("No active bookings recorded.");
+                                break;
+                            }
+
+                            double averageNights = guests.Where(g => g.roomNumber != "Not Assigned").Average(g => g.totalNights);
+                            Console.WriteLine("Average nights (active bookings): " + averageNights.ToString("F2"));
+
+                            var topGuests = guests.Where(g => g.roomNumber != "Not Assigned")
+                                                   .OrderByDescending(g => g.calculateTotalCost())
+                                                   .Take(3);
+                            Console.WriteLine("Top 3 highest-spending guests:");
+                            foreach (Guest g in topGuests)
+                            {
+                                Console.WriteLine(g.guestName + " — Room " + g.roomNumber + " — OMR " + g.calculateTotalCost().ToString("F2"));
+                            }
+
+                            Console.WriteLine("Booked guest summary:");
+                            var summaryLines = guests.Where(g => g.roomNumber != "Not Assigned")
+                                                      .Select(g => g.guestName + " — Room " + g.roomNumber + " — " + g.totalNights + " nights — OMR " + g.calculateTotalCost().ToString("F2"));
+                            foreach (string line in summaryLines)
+                            {
+                                Console.WriteLine(line);
+                            }
+                            break;
+                        }
                     case 8:
                         Console.WriteLine("Case 8");
                         break;
