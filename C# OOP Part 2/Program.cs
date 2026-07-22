@@ -186,8 +186,22 @@ namespace HotelManagementSystem
                             break;
                         }
                     case 5:
-                        Console.WriteLine("Case 5");
-                        break;
+                        {
+                            // Case 05 View All Guests
+                            Console.WriteLine("Total guests: " + guests.Count());
+                            if (!guests.Any())
+                            {
+                                Console.WriteLine("No guests have been registered yet.");
+                                break;
+                            }
+
+                            var sortedGuests = guests.OrderBy(g => g.guestName);
+                            foreach (Guest g in sortedGuests)
+                            {
+                                g.displayGuest();
+                            }
+                            break;
+                        }
                     case 6:
                         Console.WriteLine("Case 6");
                         break;
