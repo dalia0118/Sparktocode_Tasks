@@ -169,8 +169,22 @@ namespace HotelManagementSystem
                             break;
                         }
                     case 4:
-                        Console.WriteLine("Case 4");
-                        break;
+                        {
+                            // Case 04 View All Rooms 
+                            Console.WriteLine("Total rooms: " + rooms.Count());
+                            if (!rooms.Any())
+                            {
+                                Console.WriteLine("No rooms have been added yet.");
+                                break;
+                            }
+
+                            var sortedRooms = rooms.OrderBy(r => r.roomNumber);
+                            foreach (Room r in sortedRooms)
+                            {
+                                r.displayRoom();
+                            }
+                            break;
+                        }
                     case 5:
                         Console.WriteLine("Case 5");
                         break;
