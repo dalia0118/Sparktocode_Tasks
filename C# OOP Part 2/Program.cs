@@ -345,8 +345,39 @@ namespace HotelManagementSystem
                             break;
                         }
                     case 8:
-                        Console.WriteLine("Case 8");
-                        break;
+                        {
+                            // Case 08 Update Room Price
+                            Console.Write("Enter room number: ");
+                            int updateRoomNumber;
+                            if (!int.TryParse(Console.ReadLine(), out updateRoomNumber))
+                            {
+                                Console.WriteLine("Invalid room number.");
+                                break;
+                            }
+
+                            Room roomToUpdate = rooms.FirstOrDefault(r => r.roomNumber == updateRoomNumber);
+                            if (roomToUpdate == null)
+                            {
+                                Console.WriteLine("Error: Room not found.");
+                                break;
+                            }
+
+                            Console.Write("Enter new price per night: ");
+                            double newRoomPrice;
+                            if (!double.TryParse(Console.ReadLine(), out newRoomPrice) || newRoomPrice <= 0)
+                            {
+                                Console.WriteLine("Price must be a positive number. No changes made.");
+                                break;
+                            }
+
+                            double oldPrice = roomToUpdate.pricePerNight;
+                            roomToUpdate.pricePerNight = newRoomPrice;
+
+                            Console.WriteLine("Price updated for Room #" + roomToUpdate.roomNumber);
+                            Console.WriteLine("Old price: OMR " + oldPrice.ToString("F2"));
+                            Console.WriteLine("New price: OMR " + newRoomPrice.ToString("F2"));
+                            break;
+                        }
                     case 9:
                         Console.WriteLine("Case 9");
                         break;
