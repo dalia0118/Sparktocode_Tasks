@@ -379,8 +379,26 @@ namespace HotelManagementSystem
                             break;
                         }
                     case 9:
-                        Console.WriteLine("Case 9");
-                        break;
+                        {
+                            // Case 09 Guest Lookup by Name
+                            Console.Write("Enter name or partial name to search: ");
+                            string searchText = Console.ReadLine();
+
+                            var matches = guests.Where(g => g.guestName.ToLower().Contains(searchText.ToLower()));
+
+                            Console.WriteLine("Matches found: " + matches.Count());
+                            if (!matches.Any())
+                            {
+                                Console.WriteLine("No guests matched that search.");
+                                break;
+                            }
+
+                            foreach (Guest g in matches)
+                            {
+                                Console.WriteLine(g.guestId + " | " + g.guestName + " | Room: " + g.roomNumber);
+                            }
+                            break;
+                        }
                     case 10:
                         Console.WriteLine("Case 10");
                         break;
