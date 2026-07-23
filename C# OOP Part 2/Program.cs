@@ -400,8 +400,32 @@ namespace HotelManagementSystem
                             break;
                         }
                     case 10:
-                        Console.WriteLine("Case 10");
-                        break;
+                        {
+                            // Case 10 Room Type Breakdown Report 
+                            string[] roomTypes = { "Single", "Double", "Suite" };
+
+                            foreach (string type in roomTypes)
+                            {
+                                int typeCount = rooms.Count(r => r.roomType.Equals(type, StringComparison.OrdinalIgnoreCase));
+                                Console.WriteLine(type + " rooms: " + typeCount);
+
+                                if (typeCount == 0)
+                                {
+                                    Console.WriteLine(type + " average price: N/A");
+                                }
+                                else
+                                {
+                                    double typeAverage = rooms.Where(r => r.roomType.Equals(type, StringComparison.OrdinalIgnoreCase)).Average(r => r.pricePerNight);
+                                    Console.WriteLine(type + " average price: OMR " + typeAverage.ToString("F2"));
+                                }
+                            }
+
+                            if (rooms.Any())
+                            {
+                                Console.WriteLine("Overall average price: OMR " + rooms.Average(r => r.pricePerNight).ToString("F2"));
+                            }
+                            break;
+                        }
                     case 11:
                         Console.WriteLine("Case 11");
                         break;
