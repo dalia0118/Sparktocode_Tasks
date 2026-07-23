@@ -477,8 +477,42 @@ namespace HotelManagementSystem
                             break;
                         }
                     case 12:
-                        Console.WriteLine("Case 12");
-                        break;
+                        {
+                            // Case 12 Remove Unavailable Rooms
+                            var removableRooms = rooms.Where(r => !r.isAvailable && !guests.Any(g => g.roomNumber == r.roomNumber.ToString()))
+                                                       .OrderBy(r => r.roomNumber);
+
+                            if (!removableRooms.Any())
+                            {
+                                Console.WriteLine("All unavailable rooms are currently occupied. No rooms can be decommissioned.");
+                                break;
+                            }
+
+                            Console.WriteLine("Rooms safe to remove:");
+                            foreach (Room r in removableRooms)
+                            {
+                                Console.WriteLine("Room #" + r.roomNumber + " | " + r.roomType + " | OMR " + r.pricePerNight.ToString("F2"));
+                            }
+                            Console.WriteLine("Removable rooms: " + removableRooms.Count());
+
+                            Console.Write("Confirm removal? (Y/N): ");
+                            string confirmRemoval = Console.ReadLine();
+                            if (confirmRemoval.ToUpper() != "Y")
+                            {
+                                Console.WriteLine("No rooms were removed.");
+                                break;
+                            }
+
+                            rooms.RemoveAll(r => !r.isAvailable && !guests.Any(g => g.roomNumber == r.roomNumber.ToString()));
+
+                            Console.WriteLine("Rooms removed. Total rooms remaining: " + rooms.Count);
+                            var remaining = rooms.Select(r => r.roomNumber + " - " + r.roomType);
+                            foreach (string line in remaining)
+                            {
+                                Console.WriteLine(line);
+                            }
+                            break;
+                        }
                     case 13:
                         Console.WriteLine("Case 13");
                         break;
